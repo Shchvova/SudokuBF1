@@ -235,8 +235,9 @@ int bruteForce(std::string_view strField)
 
 int main(int argc, char *argv[])
 {
-	if (argc != 2)
+	if (argc != 2) {
+		std::cerr<<"Missing required "<<sss_size<<"x"<<sss_size<<" sudoku puzzle as first argument (single string with "<<sss_size*sss_size<<" digits)."<<std::endl;
 		return -1;
-
+	}
 	return bruteForce(argv[1]);
 }
