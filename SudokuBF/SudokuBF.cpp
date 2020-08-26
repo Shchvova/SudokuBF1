@@ -224,6 +224,11 @@ void bruteForceImpl(Field *field, coor_type startRow, coor_type startColumn, int
 
 int bruteForce(std::string_view strField)
 {
+	// this can be more than field_size because invalid symbols are ignored
+	if(strField.length() < field_size) {
+		std::cerr<<"Invalid length of the first parameter: "<<unit_size<<"x"<<unit_size<<" sudoku puzzle expected (single string with "<<field_size<<" symbols)."<<std::endl;
+		return -1;
+	}
 	Field field{ strField };
 	int solutionCount{ 0 };
 
@@ -236,7 +241,7 @@ int bruteForce(std::string_view strField)
 int main(int argc, char *argv[])
 {
 	if (argc != 2) {
-		std::cerr<<"Missing required "<<sss_size<<"x"<<sss_size<<" sudoku puzzle as first argument (single string with "<<sss_size*sss_size<<" digits)."<<std::endl;
+		std::cerr<<"Missing required "<<unit_size<<"x"<<unit_size<<" sudoku puzzle as first argument (single string with "<<field_size<<" symbols)."<<std::endl;
 		return -1;
 	}
 	return bruteForce(argv[1]);
