@@ -235,13 +235,15 @@ int bruteForce(std::string_view strField)
 
 int main(int argc, char *argv[])
 {
-	if (argc != 2) {
-		std::cerr<<"Single parameter required: "<<unit_size<<"x"<<unit_size<<" sudoku puzzle as first argument (single string with "<<field_size<<" symbols)."<<std::endl;
+	if (argc != 2)
+	{
+		std::cerr<<"Single parameter is required: "<<unit_size<<"x"<<unit_size<<" sudoku puzzle as first argument (single string with "<<field_size<<" symbols)."<<std::endl;
 		return -1;
 	}
 	std::string_view strField(argv[1]);
-	if(strField.length() < field_size) {
-		std::cerr<<"Invalid length of the first parameter: "<<unit_size<<"x"<<unit_size<<" sudoku puzzle expected (single string with "<<field_size<<" symbols)."<<std::endl;
+	if (strField.length() != field_size)
+	{
+		std::cerr<<"Invalid length of the first parameter: "<<unit_size<<"x"<<unit_size<<" sudoku puzzle is expected (single string with "<<field_size<<" symbols)."<<std::endl;
 		return -1;
 	}
 
