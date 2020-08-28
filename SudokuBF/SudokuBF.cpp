@@ -151,7 +151,7 @@ Field::Field(std::string_view strField)
 			else
 			{
 				// asset here is just for indication that something is "wrong" with strField,
-				// so it is not "fully" handlded. Meanwhile field is still in "correct" state
+				// so it is not "fully" handled. Meanwhile field is still in "correct" state
 				assert(0);
 				return;
 			}
@@ -211,7 +211,7 @@ void bruteForceImpl(Field *field, coor_type startRow, coor_type startColumn, int
 					field->setValue(row, column, value);
 					// call this function recursively to fill in still unkown cells
 					bruteForceImpl(field, row, column, solutionCount);
-					// remove current assumtion
+					// remove current assumption
 					field->removeValue(row, column, value);
 				}
 				return;
